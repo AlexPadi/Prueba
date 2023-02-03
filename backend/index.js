@@ -1,13 +1,14 @@
 const express=require('express');
 const app=express();
 const morgan=require('morgan');
-const cors=require('cors');
-const {mongoose}=require('./database');
+const cors= require('cors');
+const {moongose}=require('./database');
 
+require('./database');
 
-//setings
-app.set('nombreApp','Aplicacion para manejo de gastos SRI');
-app.set('puerto',process.env.PORT|| 3010);
+//settings
+app.set('nombreApp','Calculadora SRI');
+app.set('puerto',process.env.PORT||3000);
 
 //middleware
 app.use(morgan('dev'));
@@ -21,4 +22,4 @@ app.use('/api/gastos',require('./routes/server.routes'));
 app.listen(app.get('puerto'), ()=>{
     console.log('Nombre de la App',app.get('nombreApp'));
     console.log('Puerto del servidor',app.get('puerto'));
-});
+})
