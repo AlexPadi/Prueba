@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Gasto } from '../models/gasto';
+import { Observable } from 'rxjs';
 
-
+const baseUrl='http://localhost:3000/api/gastos';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Gasto } from '../models/gasto';
 export class GastoService {
   
   selectedGasto: Gasto;
-  readonly URL_API='http://localhost:3000/api/gastos';
+  
   gastos:Gasto[]=[];
 
   constructor(private http: HttpClient) {
@@ -23,16 +24,23 @@ export class GastoService {
   }
     
   postGasto(Gasto: Gasto){
-    return this.http.post(this.URL_API,Gasto);
+    return this.http.post(baseUrl,Gasto);
   }
 
-  putGasto(gasto: Gasto){
-    return this.http.put(this.URL_API+'/$(gasto._id)',gasto);
+  /*putGasto(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }*/
+  
+  putGasto(Gasto: Gasto){
+    return this.http.put(baseUrl+'/$(gasto._id)',Gasto);
+  }
+  deleteGasto(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
 
-  deleteGasto(_id:string){
-    return this.http.delete(this.URL_API+'/${gasto._id}');
-  }
+  /*deleteGasto(_id:string){
+    return this.http.delete(this.baseUrl+'/${gasto._id}');
+  }*/
 
 
 

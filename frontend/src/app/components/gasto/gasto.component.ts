@@ -29,8 +29,9 @@ export class GastoComponent implements OnInit {
   addGasto(form:NgForm)
   {
     if(form.value._id){
-        this.gastoService.putGasto(form.value)
+        this.gastoService.putGasto(form.value._id)
         .subscribe(res=>{
+          console.log('id'+form.value._id);
         console.log(res);
         this.resetForm(form);
         M.toast({html:'Gasto Actualizado'});

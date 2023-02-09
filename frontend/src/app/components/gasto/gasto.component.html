@@ -5,29 +5,35 @@
                 <div class="card-content">
                     <form #gastoForm="ngForm" (ngSubmit)="addGasto(gastoForm)">
                         <div class="row">
-                        <div class="input-field col s12">
-                        <input type="text" name="tipo" #name="ngModel" [(ngModel)]="gastoService.selectedGasto.tipo"
-                        placeholder="Ingrese el tipo de gasto">
-                        </div>
-                        <div class="input-field col s12">
-                        <input type="text" name="ruc" #name="ngModel" [(ngModel)]="gastoService.selectedGasto.ruc" placeholder="Ingrese el ruc de empresa">
-                        </div>
-                        <div class="input-field col s12">
-                        <input type="text" name="empresa" #name="ngModel" [(ngModel)]="gastoService.selectedGasto.empresa" placeholder="Ingrese el nombre de empresa">
-                        </div>
-                        <div class="input-field col s12">
-                        <input type="text" name="monto" #name="ngModel" [(ngModel)]="gastoService.selectedGasto.monto"
-                        placeholder="Ingrese el monto del gasto">
-                        </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="tipo" #name="ngModel"
+                                    [(ngModel)]="gastoService.selectedGasto.tipo"
+                                    placeholder="Ingrese el tipo de gasto">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="ruc" #name="ngModel"
+                                    [(ngModel)]="gastoService.selectedGasto.ruc"
+                                    placeholder="Ingrese el ruc de empresa">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="empresa" #name="ngModel"
+                                    [(ngModel)]="gastoService.selectedGasto.empresa"
+                                    placeholder="Ingrese el nombre de empresa">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="monto" #name="ngModel"
+                                    [(ngModel)]="gastoService.selectedGasto.monto"
+                                    placeholder="Ingrese el monto del gasto">
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="input-field col s12">
-                            <button class="btn right">Grabar</button>
-                            <button class="btn right" (click)="resetForm(gastoForm)">Borrar</button>
+                                <button class="btn right">Grabar</button>
+                                <button class="btn right" (click)="resetForm(gastoForm)">Borrar</button>
                             </div>
-                            </div>
-                        
-                        </form>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -48,12 +54,12 @@
                 <td>{{gasto.ruc}}</td>
                 <td>{{gasto.monto}}</td>
                 <td>
-                    <a (click)="editGasto(gasto)">
+                    <a (click)="editGasto(gasto)" class="btn right">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
                 <td>
-                    <a (click)="deleteGasto(gasto._id)">
+                    <a (click)="deleteGasto(gasto._id)" class="btn">
                         <i class="material-icons">delete</i>
                     </a>
                 </td>
@@ -61,5 +67,3 @@
         </tbody>
     </table>
 </div>
-
-
